@@ -1,0 +1,15 @@
+source 'https://rubygems.org'
+
+gem 'sinatra'
+gem 'sinatra-contrib'
+gem 'sinatra-activerecord'
+gem 'pg'
+gem 'rake'
+gem 'sinatra-cross_origin'
+gem 'active_model_serializers'
+
+group :test, :development do
+  gem 'pry'
+  gem 'rspec'
+  gem 'capybara'
+end

@@ -1,0 +1,10 @@
+<h1 id="title">Jobs</h1>
+
+<ul class="job-list">
+{{#each}}
+  <li>
+    <h3>{{link-to title 'jobs.show' this}}</h3>
+    <p>{{description}}</p>
+  </li>
+{{/each}}
+</ul>
