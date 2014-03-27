@@ -14,6 +14,10 @@ Dir[File.join(File.dirname(__FILE__), 'app', '**', '*.rb')].each do |file|
   require file
 end
 
+get '/' do
+  File.read(File.join('public', 'index.html'))
+end
+
 get '/jobs/:id' do
   job = Job.find(params[:id])
   json JobSerializer.new(job)

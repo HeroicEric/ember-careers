@@ -1,3 +1,5 @@
+var host = window.ENV.host;
+
 export default DS.RESTAdapter.extend({
-  host: 'http://localhost:9393'
+  host: host
 });
