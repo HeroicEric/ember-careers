@@ -12,11 +12,11 @@ jobs_attrs = [
     description: 'You will write Javascripz'
   }, {
     title: 'Junior Ember Developer',
-    company: 'Firecracker',
-    description: 'Help med students learn better'
+    company: 'Github',
+    description: 'Get paid to learn Ember!'
   }, {
     title: 'Senior Ember Developer',
-    company: 'Firecracker',
+    company: 'Github',
     description: 'Somebody to tell Jason how to build things.'
   }
 ]
