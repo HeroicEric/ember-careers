@@ -8,16 +8,22 @@
 jobs_attrs = [
   {
     title: 'Javascripter',
-    company: 'JzJavascriptz',
-    description: 'You will write Javascripz'
+    company: 'Tilde',
+    description: 'You will write Javascripz',
+    location: 'Portland, OR',
+    category: 'internship'
   }, {
     title: 'Junior Ember Developer',
     company: 'Github',
-    description: 'Get paid to learn Ember!'
+    description: 'Get paid to learn Ember!',
+    location: 'Boston, MA',
+    category: 'part-time'
   }, {
     title: 'Senior Ember Developer',
     company: 'Github',
-    description: 'Somebody to tell Jason how to build things.'
+    description: 'Somebody to tell Jason how to build things.',
+    location: 'New York City, NY',
+    category: 'full-time'
   }
 ]
 

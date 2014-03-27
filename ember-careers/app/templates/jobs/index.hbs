@@ -3,8 +3,8 @@
 <ul class="job-list">
 {{#each}}
   <li>
-    <h3>{{#link-to 'jobs.show' this}}{{company}} - {{title}}{{/link-to}}</h3>
-    <p>{{description}}</p>
+    <h3>{{link-to title 'jobs.show' this}}</h3>
+    <p><strong>{{category}}</strong> at {{company}} ({{location}})</p>
   </li>
 {{/each}}
 </ul>
