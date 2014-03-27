@@ -10,7 +10,7 @@
 // $rem-base: 16px;
 
 // Allows the use of rem-calc() or lower-bound() in your settings
-@import "foundation/functions";
+@import "functions";
 
 // $experimental: true;
 
@@ -39,7 +39,7 @@
 // $total-columns: 12;
 
 // We use these to control various global styles
-// $body-bg: #fff;
+$body-bg: #faf4f1;
 // $body-font-color: #222;
 // $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
@@ -54,7 +54,7 @@
 // $default-float: left;
 
 // We use these as default colors throughout
-// $primary-color: #008CBA;
+$primary-color: #F23818;
 // $secondary-color: #e7e7e7;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
@@ -118,7 +118,7 @@
 // $include-html-type-classes: $include-html-classes;
 
 // We use these to control header font styles
-// $header-font-family: $body-font-family;
+$header-font-family: 'Maven Pro', sans-serif;
 // $header-font-weight: normal;
 // $header-font-style: normal;
 // $header-font-color: #222;
@@ -1137,7 +1137,7 @@
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: #333;
+$topbar-bg-color: $primary-color;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
@@ -1165,9 +1165,9 @@
 // $topbar-link-weight: normal;
 // $topbar-link-font-size: rem-calc(13);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
-// $topbar-link-bg-hover: #272727;
-// $topbar-link-bg-active: $primary-color;
-// $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
+$topbar-link-bg-hover: scale-color($primary-color, $lightness: -20%);
+$topbar-link-bg-active: scale-color($primary-color, $lightness: -14%);
+$topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -20%);
 // $topbar-link-font-family: $body-font-family;
 // $topbar-link-text-transform: none;
 // $topbar-link-padding: $topbar-height / 3;
