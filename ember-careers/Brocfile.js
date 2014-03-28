@@ -70,8 +70,7 @@ module.exports = function (broccoli) {
       'ember.js',
       'ic-ajax/main.js',
       'ember-data.js',
-      'ember-resolver.js',
-      'ember-validations/index.js'
+      'ember-resolver.js'
     ],
 
     wrapInEval: env !== 'production',
