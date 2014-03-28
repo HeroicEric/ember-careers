@@ -1,0 +1,49 @@
+<h1>Add a Job</h1>
+
+{{#if errors.content}}
+  <h3>There were some errors with the info you provided:</h3>
+
+  <ul>
+    {{#each errors.content}}
+      <li><strong>{{attribute}}</strong> {{message}}</li>
+    {{/each}}
+  </ul>
+{{/if}}
+
+<form>
+  <div class="row">
+    <div class="small-12 medium-3 columns">
+      <label>Job Title
+        {{input value=title placeholder='Senior Ember Developer'}}
+      </label>
+    </div>
+    <div class="small-12 medium-3 columns">
+      <label>Company
+        {{input value=company placeholder='Tilde'}}
+      </label>
+    </div>
+    <div class="small-12 medium-3 columns">
+      <label>Location
+        {{input value=location placeholder='Portland, OR'}}
+      </label>
+    </div>
+    <div class="small-12 medium-3 columns">
+      <label>Category
+        {{view Ember.Select content=categories value=category}}
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 columns">
+      <label>Description
+        {{textarea rows=15 value=description placeholder='Come build awesome ember apps with us!'}}
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 columns">
+      <button type="submit" {{action save this}}>Save</button>
+      <button type="submit" {{action cancel this}}>Cancel</button>
+    </div>
+  </div>
+</form>
