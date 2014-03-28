@@ -5,4 +5,4 @@
 //
 // window.ENV.public_key = '123456'
 
-window.ENV.host = 'http://localhost:9393';
+window.ENV.host = 'http://localhost:3000';
