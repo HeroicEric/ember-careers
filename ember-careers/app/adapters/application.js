@@ -1,6 +1,6 @@
 var host = window.ENV.host;
 
-export default DS.RESTAdapter.extend({
+export default DS.ActiveModelAdapter.extend({
   host: host,
   namespace: 'api/v1'
 });
