@@ -69,7 +69,8 @@ module.exports = function (broccoli) {
     'ember.js',
     'ic-ajax/main.js',
     'ember-data.js',
-    'ember-resolver.js'
+    'ember-resolver.js',
+    'ember-simple-auth/ember-simple-auth.js'
   ];
 
   if (env !== 'production') {
@@ -98,6 +99,7 @@ module.exports = function (broccoli) {
     inputFiles: [
       'ember-careers/**/*.js'
     ],
+
     legacyFilesToAppend: legacyFilesToAppend,
 
     wrapInEval: env !== 'production',
