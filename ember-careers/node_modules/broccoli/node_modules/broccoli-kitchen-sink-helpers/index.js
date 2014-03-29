@@ -108,7 +108,7 @@ function linkRecursivelySync (src, dest, _mkdirp) {
   if (_mkdirp == null) _mkdirp = true
   // Note: We could try readdir'ing and catching ENOTDIR exceptions, but that
   // is 3x slower than stat'ing in the common case that we have a file.
-  var srcStats = fs.statSync(src)
+  var srcStats = fs.lstatSync(src)
   if (srcStats.isDirectory()) {
     mkdirp.sync(dest)
     var entries = fs.readdirSync(src)

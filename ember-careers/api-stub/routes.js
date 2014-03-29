@@ -5,40 +5,26 @@ module.exports = function(server) {
   // have to be repeated for each end point.
   server.namespace('/api', function() {
 
-    server.get('/jobs', function(req, res) {
-      var jobs = {
-        "jobs": [{
+    // Return fixture data for '/api/posts/:id'
+    server.get('/posts/:id', function(req, res) {
+      var post = {
+        "post": {
           "id": 1,
-          "title": "Senior Ember Dev",
-          "body": "Awesome ember job",
-          "company": "GitHub"
+          "title": "Rails is omakase",
+          "comments": ["1", "2"],
+          "user" : "dhh"
+        },
+
+        "comments": [{
+          "id": "1",
+          "body": "Rails is unagi"
         }, {
-          "id": 2,
-          "title": "Junior Embereno",
-          "body": "Semi-awesome ember job",
-          "company": "Launch Academy"
-        }, {
-          "id": 3,
-          "title": "Angular Dev",
-          "body": "Do you want to write your own framework? Come work with us!",
-          "company": "Google"
+          "id": "2",
+          "body": "Omakase O_o"
         }]
       };
 
-      res.send(jobs);
-    });
-
-    server.get('/jobs/:id', function(req, res) {
-      var job = {
-        "job": {
-          "id": 1,
-          "title": "Senior Ember Dev",
-          "body": "Awesome ember job",
-          "company": "GitHub"
-        }
-      };
-
-      res.send(job);
+      res.send(post);
     });
   });
 };
