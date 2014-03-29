@@ -17,5 +17,4 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'valid_attribute'
   gem 'quiet_assets'
-  gem 'rack-cors', require: 'rack/cors'
 end

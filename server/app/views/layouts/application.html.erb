@@ -7,8 +7,14 @@
   <meta name='description' content=''>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-  <%= stylesheet_link_tag    "application", media: "all"%>
-  <%= javascript_include_tag "application" %>
+  <% if Rails.env.production? %>
+    <%= stylesheet_link_tag    "application", media: "all"%>
+    <%= javascript_include_tag "application" %>
+  <% else %>
+    <%= stylesheet_link_tag    "http://localhost:4200/assets/app.css", media: "all"%>
+    <%= javascript_include_tag "http://localhost:4200/assets/app.js" %>
+  <% end %>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
