@@ -26,6 +26,28 @@ describe User do
     end
   end
 
+  describe "#save" do
+    context "when user doesn't have an auth token" do
+      it "sets an auth token" do
+        user = FactoryGirl.build(:user, auth_token: nil)
+        user.save
+
+        expect(user.auth_token).to_not eq nil
+      end
+    end
+
+    context "when user already has an auth token" do
+      it "doesn't change the auth token" do
+        user = FactoryGirl.create(:user)
+        token = user.auth_token
+
+        user.save
+
+        expect(user.auth_token).to eq token
+      end
+    end
+  end
+
   describe ".find_or_create_from_omniauth" do
     let(:auth_hash) { FactoryGirl.create(:github_auth_hash) }
 
