@@ -11,6 +11,8 @@ EmberCareers::Application.routes.draw do
     end
   end
 
+  get '/auth/:provider/callback', to: 'sessions#create'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

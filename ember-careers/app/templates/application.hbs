@@ -13,10 +13,18 @@
         {{#link-to 'jobs.new' tagName='li'}}
           {{link-to 'Post a Job' view.href}}
         {{/link-to}}
+        <li>
+          {{#if session.isAuthenticated}}
+            <a {{ action 'invalidateSession' }}>Logout</a>
+          {{else}}
+            <a {{ action 'authenticateSession' }}>Login</a>
+          {{/if}}
+        </li>
       </ul>
     </section>
   </nav>
 </div>
+
 
 <div class="row">
   <div class="small-12 columns">

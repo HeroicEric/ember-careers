@@ -5,4 +5,15 @@ class User < ActiveRecord::Base
   validates :provider, presence: true, inclusion: { in: PROVIDERS }
   validates :uid, presence: true, uniqueness: { scope: :provider }
   validates :username, presence: true, uniqueness: true
+
+  class << self
+    def find_or_create_from_omniauth(auth)
+      where(auth.slice("provider", "uid")).first_or_create! do |u|
+        u.provider = auth.provider
+        u.uid = auth.uid
+        u.email = auth.info.email
+        u.username = auth.info.nickname
+      end
+    end
+  end
 end

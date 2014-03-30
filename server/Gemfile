@@ -8,6 +8,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 
 gem 'active_model_serializers'
+gem 'omniauth-github'
 
 group :development, :test do
   gem 'dotenv-rails'

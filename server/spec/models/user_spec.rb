@@ -25,4 +25,28 @@ describe User do
       it { should validate_uniqueness_of(:username) }
     end
   end
+
+  describe ".find_or_create_from_omniauth" do
+    let(:auth_hash) { FactoryGirl.create(:github_auth_hash) }
+
+    describe "user already exists" do
+      it "returns the User with matching attributes" do
+        existing_user = FactoryGirl.create(:user,
+          provider: auth_hash.provider,
+          uid: auth_hash.uid)
+        user = User.find_or_create_from_omniauth(auth_hash)
+
+        expect(user).to eq existing_user
+      end
+    end
+
+    describe "user does not already exist" do
+      it "creates a new User with the correct attributes" do
+        user = User.find_or_create_from_omniauth(auth_hash)
+
+        expect(user.provider).to eq auth_hash.provider
+        expect(user.uid).to eq auth_hash.uid
+      end
+    end
+  end
 end
