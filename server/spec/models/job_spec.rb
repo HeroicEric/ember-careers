@@ -1,6 +1,12 @@
 require 'spec_helper'
 
 describe Job do
+  describe "associations" do
+    it { should belong_to :user }
+  end
+
+  it { should validate_presence_of :user }
+
   it { should have_valid(:title).when('Senior Dev', 'Ember Wizard Ninja') }
   it { should_not have_valid(:title).when(nil, '') }
 

@@ -12,7 +12,7 @@ class Api::V1::JobsController < Api::V1::BaseController
   end
 
   def create
-    @job = Job.new(job_params)
+    @job = current_user.jobs.build(job_params)
 
     if @job.save
       render json: @job, status: :created, location: [:api, :v1, @job]

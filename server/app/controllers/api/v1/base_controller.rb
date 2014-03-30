@@ -5,8 +5,17 @@ class Api::V1::BaseController < ApplicationController
   end
 
   def authenticate_token
-    authenticate_with_http_token do |token, options|
-      User.find_by(auth_token: token)
+    auth_header = request.headers['HTTP_AUTHORIZATION']
+
+    if auth_header.present?
+      token = auth_header.split.last
+      user = User.find_by(auth_token: token)
+
+      if user.present?
+        self.current_user = user
+      end
+
+      user
     end
   end
 

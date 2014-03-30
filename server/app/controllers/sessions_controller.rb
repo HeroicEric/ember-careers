@@ -5,11 +5,9 @@ class SessionsController < ApplicationController
     if user
       @data = {
         status: 'success',
-        access_token: 'abc123',
-        token_type: 'bearer',
-        user: user
+        access_token: user.auth_token,
+        token_type: 'bearer'
       }.to_json
-
     else
       message = 'There was an issue authenticating your account.'
       @data = { status: 'failure', error: message }.to_json

@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   PROVIDERS = %w(github)
 
+  has_many :jobs, inverse_of: :user
+
   validates :email, presence: true, uniqueness: true
   validates :provider, presence: true, inclusion: { in: PROVIDERS }
   validates :uid, presence: true, uniqueness: { scope: :provider }
