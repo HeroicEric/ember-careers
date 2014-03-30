@@ -1,4 +1,6 @@
-export default Ember.Route.extend({
+export default Ember.Route.extend(
+  Ember.SimpleAuth.AuthenticatedRouteMixin, {
+
   model: function() {
     return this.store.createRecord('job');
   },
