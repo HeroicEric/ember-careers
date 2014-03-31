@@ -6,7 +6,6 @@
     <script>
       var container = window.opener.EmberCareers.__container__;
       var authenticator = container.lookup('authenticators:github');
-      debugger;
 
       authenticator.trigger('externalAuthComplete', <%= @data.html_safe %>);
 
