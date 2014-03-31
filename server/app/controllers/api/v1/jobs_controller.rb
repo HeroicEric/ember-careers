@@ -1,7 +1,7 @@
 class Api::V1::JobsController < Api::V1::BaseController
   respond_to :json
 
-  before_action :ensure_valid_auth_token!, only: [:create]
+  before_action :ensure_valid_access_token!, only: [:create]
 
   def index
     render json: Job.all

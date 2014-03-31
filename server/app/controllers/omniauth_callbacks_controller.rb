@@ -5,7 +5,7 @@ class OmniauthCallbacksController < ApplicationController
     if @user
       @data = {
         status: 'success',
-        access_token: @user.auth_token,
+        access_token: @user.access_token,
         token_type: 'bearer'
       }.to_json
     end

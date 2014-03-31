@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140330041543) do
+ActiveRecord::Schema.define(version: 20140331043103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,16 +30,16 @@ ActiveRecord::Schema.define(version: 20140330041543) do
   add_index "jobs", ["user_id"], name: "index_jobs_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "username",   null: false
-    t.string   "email",      null: false
-    t.string   "provider",   null: false
-    t.string   "uid",        null: false
+    t.string   "username",     null: false
+    t.string   "email",        null: false
+    t.string   "provider",     null: false
+    t.string   "uid",          null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "auth_token", null: false
+    t.string   "access_token", null: false
   end
 
-  add_index "users", ["auth_token"], name: "index_users_on_auth_token", unique: true, using: :btree
+  add_index "users", ["access_token"], name: "index_users_on_access_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree

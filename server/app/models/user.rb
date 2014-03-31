@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   validates :uid, presence: true, uniqueness: { scope: :provider }
   validates :username, presence: true, uniqueness: true
 
-  before_save :set_auth_token
+  before_save :set_access_token
 
   class << self
     def find_or_create_from_omniauth(auth)
@@ -22,15 +22,15 @@ class User < ActiveRecord::Base
   end
 
   private
-  def set_auth_token
-    return if self.auth_token.present?
-    self.auth_token = generate_auth_token
+  def set_access_token
+    return if self.access_token.present?
+    self.access_token = generate_access_token
   end
 
-  def generate_auth_token
+  def generate_access_token
     loop do
       token = SecureRandom.hex
-      break token unless self.class.exists?(auth_token: token)
+      break token unless self.class.exists?(access_token: token)
     end
   end
 end

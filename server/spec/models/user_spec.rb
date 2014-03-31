@@ -31,36 +31,36 @@ describe User do
   end
 
   describe "#save" do
-    context "when user doesn't have an auth token" do
-      it "sets an auth token" do
-        user = FactoryGirl.build(:user, auth_token: nil)
+    context "when user doesn't have an access token" do
+      it "sets an access token" do
+        user = FactoryGirl.build(:user, access_token: nil)
         user.save
 
-        expect(user.auth_token).to_not eq nil
+        expect(user.access_token).to_not eq nil
       end
     end
 
-    context "when user already has an auth token" do
-      it "doesn't change the auth token" do
+    context "when user already has an access token" do
+      it "doesn't change the access token" do
         user = FactoryGirl.create(:user)
-        token = user.auth_token
+        token = user.access_token
 
         user.save
 
-        expect(user.auth_token).to eq token
+        expect(user.access_token).to eq token
       end
     end
   end
 
   describe ".find_or_create_from_omniauth" do
-    let(:auth_hash) { FactoryGirl.create(:github_auth_hash) }
+    let(:access_hash) { FactoryGirl.create(:github_auth_hash) }
 
     describe "user already exists" do
       it "returns the User with matching attributes" do
         existing_user = FactoryGirl.create(:user,
-          provider: auth_hash.provider,
-          uid: auth_hash.uid)
-        user = User.find_or_create_from_omniauth(auth_hash)
+          provider: access_hash.provider,
+          uid: access_hash.uid)
+        user = User.find_or_create_from_omniauth(access_hash)
 
         expect(user).to eq existing_user
       end
@@ -68,10 +68,10 @@ describe User do
 
     describe "user does not already exist" do
       it "creates a new User with the correct attributes" do
-        user = User.find_or_create_from_omniauth(auth_hash)
+        user = User.find_or_create_from_omniauth(access_hash)
 
-        expect(user.provider).to eq auth_hash.provider
-        expect(user.uid).to eq auth_hash.uid
+        expect(user.provider).to eq access_hash.provider
+        expect(user.uid).to eq access_hash.uid
       end
     end
   end
