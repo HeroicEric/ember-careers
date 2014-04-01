@@ -1,6 +1,1 @@
 .DS_store
-
-server/config/database.yml
-server/.bundle
-
-ember-careers/tmp
