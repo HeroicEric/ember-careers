@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'json'
 
 describe OmniauthCallbacksController do
   describe "GET #success" do
