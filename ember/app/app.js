@@ -10,6 +10,17 @@ var App = Ember.Application.extend({
   Resolver: Resolver
 });
 
+// TODO: Figure out where to actually put things like this
+$.ajaxPrefilter(function(options, originalOptions, jqXHR) {
+  var token;
+  if (!options.crossDomain) {
+    token = $('meta[name="csrf-token"]').attr('content');
+    if (token) {
+      return jqXHR.setRequestHeader('X-CSRF-Token', token);
+    }
+  }
+});
+
 App.GithubAuthenticator = Ember.SimpleAuth.Authenticators.OAuth2.extend(Ember.Evented, {
   authenticate: function(credentials) {
     var _this = this;
