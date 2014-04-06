@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import QUnit from 'qunit';
+//import QUnit from 'qunit'; // Assumed global in runner
 import testContext from './test-context';
 
 function resetViews() {
@@ -7,9 +7,10 @@ function resetViews() {
 }
 
 export default function test(testName, callback) {
-  var context = testContext.get(); // save refence
 
   function wrapper() {
+    var context = testContext.get();
+    
     resetViews();
     var result = callback.call(context);
 

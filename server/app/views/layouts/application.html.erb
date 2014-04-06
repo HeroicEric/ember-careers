@@ -7,6 +7,13 @@
   <meta name='description' content=''>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
 
+  <script>
+    window.ENV = {"rootURL":"/","FEATURES":{}};
+    document.write('<base href="' + document.location.origin + ENV.rootURL + '" />');
+  </script>
+
+  <link href='http://fonts.googleapis.com/css?family=Maven+Pro:400,700' rel='stylesheet' type='text/css'>
+
   <% if Rails.env.production? %>
     <%= stylesheet_link_tag    "application", media: "all"%>
     <%= javascript_include_tag "application" %>
@@ -18,8 +25,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= yield %>
-
   <script>
     window.EmberCareers = require('ember-careers/app')['default'].create();
   </script>

@@ -1,4 +1,7 @@
-var Router = Ember.Router.extend(); // ensure we don't share routes between all Router instances
+var Router = Ember.Router.extend({
+  namespace: 'api/v1',
+  rootURL: ENV.rootURL
+});
 
 Router.map(function() {
   this.resource('jobs', function() {

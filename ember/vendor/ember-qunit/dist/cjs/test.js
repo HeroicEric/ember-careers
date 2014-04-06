@@ -1,6 +1,6 @@
 "use strict";
 var Ember = require("ember")["default"] || require("ember");
-var QUnit = require("qunit")["default"] || require("qunit");
+//import QUnit from 'qunit'; // Assumed global in runner
 var testContext = require("./test-context")["default"] || require("./test-context");
 
 function resetViews() {
@@ -8,9 +8,10 @@ function resetViews() {
 }
 
 exports["default"] = function test(testName, callback) {
-  var context = testContext.get(); // save refence
 
   function wrapper() {
+    var context = testContext.get();
+    
     resetViews();
     var result = callback.call(context);
 

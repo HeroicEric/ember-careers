@@ -1,6 +1,6 @@
 {
   "name": "ember-qunit",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "authors": [
     "Stefan Penner",
     "Ryan Florence"
@@ -17,11 +17,11 @@
     "ember-data": "~1.0.0-beta.7"
   },
   "homepage": "https://github.com/rpflorence/ember-qunit",
-  "_release": "0.1.6",
+  "_release": "0.1.7",
   "_resolution": {
     "type": "version",
-    "tag": "v0.1.6",
-    "commit": "444671b6db98eaf92858c4e42500ebc3d0b02642"
+    "tag": "v0.1.7",
+    "commit": "2fe2f50b5c0b390c2a146fd2f9bb946bebf37d24"
   },
   "_source": "git://github.com/rpflorence/ember-qunit.git",
   "_target": "~0.1.5",

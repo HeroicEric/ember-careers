@@ -5,7 +5,7 @@ import Ember from 'ember';
 export default function moduleForComponent(name, description, callbacks) {
   var resolver = testResolver.get();
 
-  moduleFor('component:' + name, description, callbacks, function(container, context) {
+  moduleFor('component:' + name, description, callbacks, function(container, context, defaultSubject) {
     var templateName = 'template:components/' + name;
 
     var template = resolver.resolve(templateName);
@@ -14,6 +14,9 @@ export default function moduleForComponent(name, description, callbacks) {
       container.register(templateName, template);
       container.injection('component:' + name, 'template', templateName);
     }
+    
+    context.dispatcher = Ember.EventDispatcher.create();
+    context.dispatcher.setup({}, '#ember-testing');
 
     context.__setup_properties__.append = function(selector) {
       var containerView = Ember.ContainerView.create({container: container});
@@ -21,7 +24,7 @@ export default function moduleForComponent(name, description, callbacks) {
         var subject = context.subject();
         containerView.pushObject(subject);
         // TODO: destory this somewhere
-        containerView.appendTo(Ember.$('#ember-testing')[0]);
+        containerView.appendTo('#ember-testing');
         return subject;
       });
 
