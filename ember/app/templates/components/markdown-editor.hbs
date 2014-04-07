@@ -1,0 +1,12 @@
+<div class="markdown-editor__content">
+  {{#if showPreview}}
+    {{preview}}
+  {{else}}
+    {{textarea value=content rows=rows placeholder=placeholder}}
+  {{/if}}
+</div>
+
+<button class="button tiny markdown-editor__preview-toggle"
+  {{action 'togglePreview'}}>
+  Toggle Preview
+</button>

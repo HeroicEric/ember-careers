@@ -6,3 +6,18 @@
   margin-left: 0;
   list-style-type: none;
 }
+
+.markdown-editor {
+  position: relative;
+}
+
+.markdown-editor__content {
+  min-height: 100px;
+}
+
+.markdown-editor__preview-toggle {
+  opacity: 0.4;
+  position: absolute;
+  top: rem-calc(8);
+  right: 0;
+}
