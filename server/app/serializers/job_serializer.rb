@@ -1,12 +1,17 @@
 class JobSerializer < ActiveModel::Serializer
   attributes :id,
-    :title,
-    :company,
+    :can_edit,
     :category,
+    :company,
+    :description,
     :location,
-    :description
+    :title
 
   def category
     object.category.capitalize
+  end
+
+  def can_edit
+    object.user == scope
   end
 end

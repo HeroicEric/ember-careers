@@ -65,4 +65,31 @@ describe Api::V1::JobsController do
       end
     end
   end
+
+  describe "PUT #update" do
+    context "with valid access token" do
+      before do
+        user = FactoryGirl.create(:user)
+        mock_access_token_for(user)
+      end
+
+      context "with valid attributes" do
+        it "creates a new job" do
+          expect(Job.count).to eq 0
+
+          post :create, job: {
+            title: 'Senior Developer',
+            description: 'Build awesome ember apps',
+            company: 'Embros Inc.',
+            location: 'Portland, OR',
+            category: 'full-time'
+          }
+
+          expect(Job.count).to eq 1
+          expect(response.status).to eq 201
+          expect(json).to be_json_eq JobSerializer.new(Job.first)
+        end
+      end
+    end
+  end
 end
