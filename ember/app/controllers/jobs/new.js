@@ -1,5 +1,3 @@
-var JobsNewController = Ember.ObjectController.extend({
+export default Ember.ObjectController.extend({
   categories: ['Full-time', 'Part-time', 'Contract', 'Internship']
 });
-
-export default JobsNewController;
