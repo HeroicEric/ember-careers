@@ -26,3 +26,11 @@ I'd love to get feedback on how to do things better, and pull requests are a
 great way to do that.
 
 If you have a feature request, please post an issue.
+
+## Todo
+
+- Admin dashboard
+- Test all the Ember things
+- Tweet new jobs
+- Analytics for jobs that you've posted
+- Choose length for posting to stay active
