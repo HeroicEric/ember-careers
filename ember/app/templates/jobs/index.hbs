@@ -6,5 +6,10 @@
     <h3>{{link-to title 'jobs.show' this}}</h3>
     <p><strong>{{category}}</strong> at {{company}} ({{location}})</p>
   </li>
+{{else}}
+  <li>
+    <p>Nobody has posted a job yet!</p>
+    <p>{{link-to 'Post a job' 'jobs.new' classNames='button primary'}}</p>
+  </li>
 {{/each}}
 </ul>
