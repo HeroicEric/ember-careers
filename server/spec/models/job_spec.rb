@@ -28,4 +28,16 @@ describe Job do
       expect(job.category).to eq 'full-time'
     end
   end
+
+  describe "scopes" do
+    describe ".chronological" do
+      it "returns the most recent jobs first" do
+        today_job = FactoryGirl.create(:job, created_at: DateTime.now)
+        last_week_job = FactoryGirl.create(:job, created_at: DateTime.now - 7.days)
+        yesterday_job = FactoryGirl.create(:job, created_at: DateTime.now - 1.day)
+
+        expect(Job.chronological).to eq [today_job, yesterday_job, last_week_job]
+      end
+    end
+  end
 end

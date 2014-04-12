@@ -4,7 +4,7 @@ describe Api::V1::JobsController do
   describe "GET #index" do
     it "returns all the jobs" do
       jobs = FactoryGirl.build_stubbed_list(:job, 3)
-      Job.stub(:all) { jobs }
+      Job.stub(:chronological) { jobs }
 
       get :index
 

@@ -14,4 +14,8 @@ class Job < ActiveRecord::Base
     category.downcase! if category.present?
     super(category)
   end
+
+  def self.chronological
+    order(created_at: :desc)
+  end
 end

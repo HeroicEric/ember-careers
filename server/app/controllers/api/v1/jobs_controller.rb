@@ -4,7 +4,7 @@ class Api::V1::JobsController < Api::V1::BaseController
   before_action :ensure_valid_access_token!, only: [:create, :update, :destroy]
 
   def index
-    render json: Job.all
+    render json: Job.chronological
   end
 
   def show
