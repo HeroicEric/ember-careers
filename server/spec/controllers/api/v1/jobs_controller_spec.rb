@@ -121,4 +121,44 @@ describe Api::V1::JobsController do
       end
     end
   end
+
+  describe "DELETE #destroy" do
+    context "with valid access token" do
+      let!(:user) { FactoryGirl.create(:user) }
+
+      before do
+        mock_access_token_for(user)
+      end
+
+      context "when job belongs to current user" do
+        it "destroys the job" do
+          job = FactoryGirl.create(:job, user: user, company: "Fast Company")
+          expect(Job.count).to eq 1
+
+          delete :destroy, id: job.id
+
+          expect(Job.count).to eq 0
+          expect(response.status).to eq 204
+        end
+      end
+
+      context "when job belongs to another user" do
+        it "doesn't destroy the job" do
+          job = FactoryGirl.create(:job)
+
+          expect {
+            delete :destroy, id: job.id
+          }.to raise_error ActiveRecord::RecordNotFound
+        end
+      end
+    end
+
+    context "without valid access token" do
+      it "is unauthorized" do
+        delete :destroy, id: 'anything'
+
+        expect(response.status).to eq 401
+      end
+    end
+  end
 end

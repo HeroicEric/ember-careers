@@ -5,8 +5,9 @@
 
   <div class="split__cell text-right">
     {{#if canEdit}}
-      {{#link-to 'jobs.edit' this}}
-        <i class="fa fa-edit fa-2"></i>
+      {{#link-to 'jobs.edit' this classNames="button tiny secondary"}}
+        <i class="fa fa-edit"></i>
+        Edit
       {{/link-to}}
     {{/if}}
   </div>

@@ -20,6 +20,18 @@ export default Ember.Route.extend(
       this.transitionTo('jobs.show', this.currentModel);
     },
 
+    delete: function(model) {
+      var _this = this;
+
+      if (confirm("Are you sure you want to delete this job?")) {
+        model.destroyRecord().then(function() {
+          _this.transitionTo('jobs.index');
+        }, function(response) {
+          _this.set('errors', response.errors);
+        });
+      }
+    },
+
     willTransition: function() {
       var model = this.get('controller.model');
 

@@ -1,7 +1,7 @@
 class Api::V1::JobsController < Api::V1::BaseController
   respond_to :json
 
-  before_action :ensure_valid_access_token!, only: [:create, :update]
+  before_action :ensure_valid_access_token!, only: [:create, :update, :destroy]
 
   def index
     render json: Job.all
@@ -29,6 +29,13 @@ class Api::V1::JobsController < Api::V1::BaseController
     else
       render json: { errors: @job.errors }, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @job = current_user.jobs.find(params[:id])
+    @job.destroy
+
+    head :no_content
   end
 
   private

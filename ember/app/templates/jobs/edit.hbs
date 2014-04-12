@@ -1,3 +1,14 @@
-<h1>Edit Job</h1>
+<div class="split">
+  <div class="split__cell">
+    <h1 id="title">Edit Job</h1>
+  </div>
+
+  <div class="split__cell text-right">
+    <button {{action 'delete' this}} class="button tiny secondary">
+      <i class="fa fa-trash-o"></i>
+      Delete
+    </button>
+  </div>
+</div>
 
 {{partial 'jobs/form'}}
