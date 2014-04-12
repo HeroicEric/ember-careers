@@ -1,6 +1,7 @@
 var Router = Ember.Router.extend({
   namespace: 'api/v1',
-  rootURL: ENV.rootURL
+  rootURL: ENV.rootURL,
+  location: 'auto'
 });
 
 Router.map(function() {

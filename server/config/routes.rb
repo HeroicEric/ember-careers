@@ -14,6 +14,8 @@ EmberCareers::Application.routes.draw do
   get 'auth/:provider/callback', to: 'omniauth_callbacks#success'
   get 'auth/failure', to: 'omniauth_callbacks#failure'
 
+  get '*foo' => 'pages#index'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
