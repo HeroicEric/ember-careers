@@ -2,6 +2,8 @@
 
 FactoryGirl.define do
   factory :job do
+    association :user
+
     title { ['Senior Developer', 'Junior Developer', 'Ember Intern', 'Ember Ninja', 'Ember Wizard'].sample }
     sequence(:description) { |n| "Really awesome #{n} description of this job." }
     sequence(:company) { |n| "Cool #{n} Company" }

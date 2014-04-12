@@ -3,5 +3,6 @@ export default DS.Model.extend({
   company: DS.attr('string'),
   title: DS.attr('string'),
   location: DS.attr('string'),
-  category: DS.attr('string')
+  category: DS.attr('string'),
+  canEdit: DS.attr('boolean', { defaultValue: false })
 });

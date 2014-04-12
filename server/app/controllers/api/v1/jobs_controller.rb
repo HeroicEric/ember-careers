@@ -1,7 +1,7 @@
 class Api::V1::JobsController < Api::V1::BaseController
   respond_to :json
 
-  before_action :ensure_valid_access_token!, only: [:create]
+  before_action :ensure_valid_access_token!, only: [:create, :update]
 
   def index
     render json: Job.all
@@ -16,6 +16,16 @@ class Api::V1::JobsController < Api::V1::BaseController
 
     if @job.save
       render json: @job, status: :created, location: [:api, :v1, @job]
+    else
+      render json: { errors: @job.errors }, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    @job = current_user.jobs.find(params[:id])
+
+    if @job.update(job_params)
+      render json: @job, status: :ok, location: [:api, :v1, @job]
     else
       render json: { errors: @job.errors }, status: :unprocessable_entity
     end

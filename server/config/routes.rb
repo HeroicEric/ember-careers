@@ -7,7 +7,7 @@ EmberCareers::Application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :jobs, only: [:index, :show, :create]
+      resources :jobs, only: [:index, :show, :create, :update]
     end
   end
 

@@ -1,4 +1,6 @@
 class Api::V1::BaseController < ApplicationController
+  before_action :authenticate_token
+
   protected
   def ensure_valid_access_token!
     authenticate_token || render_unauthorized

@@ -21,3 +21,18 @@
   top: rem-calc(8);
   right: 0;
 }
+
+.split {
+  width: 100%;
+  display: table;
+}
+
+.split__cell {
+  display: table-cell;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.fa-2 { font-size: 2em; }

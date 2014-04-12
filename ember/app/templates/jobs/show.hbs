@@ -1,4 +1,17 @@
-<h1 id="title">{{title}}</h1>
+<div class="split">
+  <div class="split__cell">
+    <h1 id="title">{{title}}</h1>
+  </div>
+
+  <div class="split__cell text-right">
+    {{#if canEdit}}
+      {{#link-to 'jobs.edit' this}}
+        <i class="fa fa-edit fa-2"></i>
+      {{/link-to}}
+    {{/if}}
+  </div>
+</div>
+
 <h3>{{category}} at {{company}} ({{location}})</h3>
 
-<p>{{render-markdown description}}</p>
+{{render-markdown description}}

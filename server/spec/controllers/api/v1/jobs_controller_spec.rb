@@ -25,8 +25,9 @@ describe Api::V1::JobsController do
 
   describe "POST #create" do
     context "with valid access token" do
+      let!(:user) { FactoryGirl.create(:user) }
+
       before do
-        user = FactoryGirl.create(:user)
         mock_access_token_for(user)
       end
 
@@ -44,7 +45,7 @@ describe Api::V1::JobsController do
 
           expect(Job.count).to eq 1
           expect(response.status).to eq 201
-          expect(json).to be_json_eq JobSerializer.new(Job.first)
+          expect(json).to be_json_eq JobSerializer.new(Job.first, scope: user)
         end
       end
 
@@ -68,27 +69,55 @@ describe Api::V1::JobsController do
 
   describe "PUT #update" do
     context "with valid access token" do
+      let!(:user) { FactoryGirl.create(:user) }
+
       before do
-        user = FactoryGirl.create(:user)
         mock_access_token_for(user)
       end
 
-      context "with valid attributes" do
-        it "creates a new job" do
-          expect(Job.count).to eq 0
+      context "when job belongs to current user" do
+        context "with valid attributes" do
+          it "updates the job" do
+            job = FactoryGirl.create(:job, user: user, company: "Fast Company")
+            expect(Job.count).to eq 1
 
-          post :create, job: {
-            title: 'Senior Developer',
-            description: 'Build awesome ember apps',
-            company: 'Embros Inc.',
-            location: 'Portland, OR',
-            category: 'full-time'
-          }
+            put :update, id: job.id, job: { company: 'Trollcat' }
 
-          expect(Job.count).to eq 1
-          expect(response.status).to eq 201
-          expect(json).to be_json_eq JobSerializer.new(Job.first)
+            job.reload
+            expect(Job.count).to eq 1
+            expect(response.status).to eq 200
+            expect(json).to be_json_eq JobSerializer.new(job, scope: user)
+            expect(job.company).to eq 'Trollcat'
+          end
         end
+
+        context "with invalid attributes" do
+          it "is not successful" do
+            job = FactoryGirl.create(:job, user: user, company: "Fast Company")
+
+            put :update, id: job.id, job: { title: '' }
+
+            expect(response.status).to eq 422
+          end
+        end
+      end
+
+      context "when job belongs to another user" do
+        it "doesn't update the job" do
+          job = FactoryGirl.create(:job)
+
+          expect {
+            put :update, id: job.id, job: { company: 'Trollcat' }
+          }.to raise_error ActiveRecord::RecordNotFound
+        end
+      end
+    end
+
+    context "without valid access token" do
+      it "is unauthorized" do
+        put :update, id: 'anything'
+
+        expect(response.status).to eq 401
       end
     end
   end
