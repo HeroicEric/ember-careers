@@ -1,4 +1,5 @@
 import Resolver from 'ember/resolver';
+import loadInitializers from 'ember/load-initializers';
 
 Ember.MODEL_FACTORY_INJECTIONS = true;
 
@@ -49,5 +50,7 @@ Ember.Application.initializer({
     Ember.SimpleAuth.setup(container, application);
   }
 });
+
+loadInitializers(App, 'ember-careers');
 
 export default App;

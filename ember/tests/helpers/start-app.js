@@ -1,3 +1,4 @@
+var Application = require('ember-careers/app')['default'];
 var Router = require('ember-careers/router')['default'];
 
 function startApp(attrs) {
@@ -15,7 +16,7 @@ function startApp(attrs) {
   });
 
   Ember.run(function(){
-    App = require('ember-careers/main')['default']('ember-careers', attributes);
+    App = Application.create(attributes);
     App.setupForTesting();
     App.injectTestHelpers();
   });

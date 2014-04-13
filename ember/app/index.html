@@ -9,7 +9,7 @@
 
     <script>
       window.ENV = {{ENV}};
-      document.write('<base href="' + document.location.origin + ENV.rootURL + '" />');
+      document.write('<base href="' + ENV.rootURL + '" />');
     </script>
 
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -20,7 +20,7 @@
   </head>
   <body>
     <script>
-      window.EmberCareers = require('ember-careers/main')['default']('ember-careers');
+      window.EmberCareers = require('ember-careers/app')['default'].create();
     </script>
   </body>
 </html>
