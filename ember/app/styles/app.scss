@@ -59,3 +59,26 @@
     text-align: center;
   }
 }
+
+.top-bar.expanded .top-bar-section {
+  @media #{$small-only} {
+    li {
+      border-bottom: 1px solid #d5ccc8;
+
+      &.active a {
+        font-weight: bold;
+        color: #443331;
+        background-color: #f4ece9;
+      }
+    }
+
+    a {
+      color: #d84a32;
+
+      &:hover {
+        background-color: #f2d1cb;
+        color: #443331;
+      }
+    }
+  }
+}

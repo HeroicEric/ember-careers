@@ -1,9 +1,10 @@
 <div class="contain-to-grid">
-  <nav class="top-bar" data-topbar>
+  <nav {{bind-attr class=":top-bar menuIsExpanded:expanded"}}data-topbar>
     <ul class="title-area">
       <li class="name">
         <h1>{{link-to 'Ember Careers' 'index'}}</h1>
       </li>
+      <li class="toggle-topbar menu-icon"><a {{action 'toggleMenu'}}>Menu</a></li>
     </ul>
     <section class="top-bar-section">
       <ul class="right">

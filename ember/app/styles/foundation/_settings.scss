@@ -40,7 +40,7 @@
 
 // We use these to control various global styles
 $body-bg: #faf4f1;
-// $body-font-color: #222;
+$body-font-color: #443331;
 // $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
@@ -1149,7 +1149,7 @@ $topbar-bg-color: $primary-color;
 // $topbar-title-font-size: rem-calc(17);
 
 // Style the top bar dropdown elements
-// $topbar-dropdown-bg: #333;
+$topbar-dropdown-bg: #f9e7e4;
 // $topbar-dropdown-link-color: #fff;
 // $topbar-dropdown-link-bg: #333;
 // $topbar-dropdown-link-weight: normal;
@@ -1187,8 +1187,8 @@ $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -20%);
 // $topbar-menu-link-weight: bold;
 // $topbar-menu-link-color: #fff;
 // $topbar-menu-icon-color: #fff;
-// $topbar-menu-link-color-toggled: #888;
-// $topbar-menu-icon-color-toggled: #888;
+$topbar-menu-link-color-toggled: #E9BCB4;
+$topbar-menu-icon-color-toggled: #E9BCB4;
 
 // Transitions and breakpoint styles
 // $topbar-transition-speed: 300ms;
