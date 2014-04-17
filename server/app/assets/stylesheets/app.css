@@ -354,7 +354,7 @@ html, body {
 
 body {
   background: #faf4f1;
-  color: #222;
+  color: #443331;
   padding: 0;
   margin: 0;
   font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
@@ -3876,9 +3876,9 @@ meta.foundation-mq-topbar {
     .top-bar.expanded .title-area {
       background: #F23818; }
     .top-bar.expanded .toggle-topbar a {
-      color: #888; }
+      color: #E9BCB4; }
       .top-bar.expanded .toggle-topbar a::after {
-        box-shadow: 0 10px 0 1px #888, 0 16px 0 1px #888, 0 22px 0 1px #888; }
+        box-shadow: 0 10px 0 1px #E9BCB4, 0 16px 0 1px #E9BCB4, 0 22px 0 1px #E9BCB4; }
 
 .top-bar-section {
   left: 0;
@@ -3889,7 +3889,7 @@ meta.foundation-mq-topbar {
     width: 100%;
     height: auto;
     display: block;
-    background: #333;
+    background: #f9e7e4;
     font-size: 16px;
     margin: 0; }
   .top-bar-section .divider, .top-bar-section [role="separator"] {
@@ -3907,7 +3907,7 @@ meta.foundation-mq-topbar {
     font-size: 0.8125rem;
     font-weight: normal;
     text-transform: none;
-    background: #333; }
+    background: #f9e7e4; }
     .top-bar-section ul li > a.button {
       font-size: 0.8125rem;
       padding-right: 15px;
@@ -4460,7 +4460,7 @@ dl dd {
 abbr, acronym {
   text-transform: uppercase;
   font-size: 90%;
-  color: #222;
+  color: #443331;
   border-bottom: 1px dotted #ddd;
   cursor: help; }
 
@@ -5015,3 +5015,16 @@ th.hide-for-touch {
     .created-by {
       margin-bottom: 1em;
       text-align: center; } }
+
+@media only screen and (max-width: 40em) {
+  .top-bar.expanded .top-bar-section li {
+    border-bottom: 1px solid #d5ccc8; }
+    .top-bar.expanded .top-bar-section li.active a {
+      font-weight: bold;
+      color: #443331;
+      background-color: #f4ece9; }
+  .top-bar.expanded .top-bar-section a {
+    color: #d84a32; }
+    .top-bar.expanded .top-bar-section a:hover {
+      background-color: #f2d1cb;
+      color: #443331; } }
