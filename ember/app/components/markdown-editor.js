@@ -1,8 +1,8 @@
 export default Ember.Component.extend({
   classNames: ['markdown-editor'],
   content: '',
-  rows: null,
-  placeholder: null,
+  rows: 15,
+  placeholder: 'You can write **Markdown** here!',
   showPreview: false,
 
   preview: function() {
