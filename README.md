@@ -10,15 +10,30 @@ I built this project as a way of practicing building an Ember application using
 [Rails](http://rubyonrails.org/). Another goal was to provide an example of one
 way to go about using ember-cli and Rails for the community.
 
+## Running the app
+
+There is a rake task that will start up both the Rails server and the ember-cli
+server.
+
+```bash
+rake run
+```
+
 ## Deploying
 
 The Rails app is the only part that we want to push when deploying. Since the
 Rails app is in a separate directory, this can be done using [git
 subtree](http://blogs.atlassian.com/2013/05/alternatives-to-git-submodule-git-subtree/).
 
+To make this process easier, there is a rake task that will handle building the
+ember assets, copy them over to the correct place in the Rails app, and then
+deploy to a `production` remote.
+
 ```bash
-git subtree push --prefix server production master
+rake deploy
 ```
+
+**Note: You will need to manually create a branch called `pre-deploy`.**
 
 ## Contributing
 
