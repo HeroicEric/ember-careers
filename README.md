@@ -1,4 +1,4 @@
-## **Update:** I'm no longer working on this because the Ember.js team set up [their own job board](http://jobs.emberjs.com/)
+## **Update:** I'm no longer working on this because the Ember.js team set up [an official job board](http://jobs.emberjs.com/)
 
 # Ember Careers
 
