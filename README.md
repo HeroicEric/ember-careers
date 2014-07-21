@@ -1,3 +1,5 @@
+## **Update:** I'm no longer working on this because the Ember.js team set up [their own job board](http://jobs.emberjs.com/)
+
 # Ember Careers
 
 [Ember Careers](https://ember.careers/jobs) is an open source job board for
